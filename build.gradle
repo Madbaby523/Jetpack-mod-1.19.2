@@ -1,0 +1,33 @@
+plugins {
+    id 'fabric-loom' version '0.10-SNAPSHOT'
+}
+
+repositories {
+    maven {
+        url 'https://maven.fabricmc.net/'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.19.2'
+    mappings 'net.fabricmc:fabric-loom:1.19.2+build.1'[this is a placeholder, please check for the correct mappings]
+    modCompile 'net.fabricmc:fabric-api:fabric-api-${project.version}'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    from(sourceSets.main.output) {
+        exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA'
+    }
+    manifest {
+        attributes(
+            'Fabric-Loom-Version': '0.10-SNAPSHOT',
+            'Mod-Dependencies': 'fabric-api',
+            'MixinConfig': 'mixins.modid.json'
+        )
+    }
+}
