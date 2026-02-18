@@ -1,0 +1,2 @@
+// This file contains settings for the Gradle build system.
+rootProject.name = 'Jetpack-mod-1.19.2'
