@@ -1,0 +1,14 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.class
+*.log
+
+# Gradle
+.gradle/
+build/
+out/
+**/build/
+**/out/
